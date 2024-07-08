@@ -1,0 +1,40 @@
+/* GLOBAL Styles */
+
+* {
+  margin:0;
+  padding:0;  
+}
+
+
+/* Page Container */
+
+.page-container {
+  display: flex;
+  height: 90vh;
+}
+
+
+/* ASIDE */
+
+aside {
+  float: left;
+  min-width: 25vw;
+}
+
+.search-btn {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  box-shadow: 2px 4px rgba(0,107,129,1);
+  border-radius: 10px;
+  /* min-width: 95%; */
+  height: 1.5lh;
+  background-color: aliceblue;
+}
+
+
+/* MAIN */
+
+main {
+  float: left;
+  min-width: 75vw;
+}
