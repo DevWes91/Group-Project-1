@@ -14,15 +14,18 @@
 </head>
 <body class="bg-slate-400">
   <header>
-    <h1 class="text-slate-300 text-6xl font-light text-center bg-slate-600 py-3 tracking-widest">
-      MOVIE FINDER 
+     
+     <h1 class="text-slate-300 text-6xl font-extrabold text-center bg-black py-3 tracking-widest ">
+      <section class="max-w-4xl mx-auto p-4 flex justify-between items-center"></section>
+      📽️MOVIE FINDER 
     </h1>
+  
   </header>
   <!-- Page Container <div> includes Aside and Main as Columns ('float: left;') -->
   <div class="page-container">
     <aside>
       <section>
-        <h3 class="text-3xl py-4 ml-8 text-slate-700">
+        <h3 class="text-3xl py-4 ml-8  text-slate-700 " >
           Movie Search:
         </h3>
         <input type="text"
@@ -37,27 +40,52 @@
         </section>
       </section>
       <section>
-        <h3 class="underline ml-7 py-4 text-2xl text-slate-700">
-          Previous Searches
+        <h3 class="hover:opacity-40 underline ml-7 py-4 text-2xl text-slate-700">
+          <nav>
+            <a href="#searches">Previous Searches</a>
         </h3>
       </section>
     </aside>
-    <main class="text-slate-900 text-center">
-      <h3 class="text-4xl py-10 underline tracking-wider">
+
+    <main class="max-w-4xl mx-auto">
+      <h3 class="text-4xl py-10 underline text-center">
         Movie Information
       </h3>
-      <section id="current-movie" class="py-4">
-        <h4>Movie Name and Year: </h4>
+      <section class="py-4">
+        <h4 class="text-3xl py-2 -ml-5">
+          Movie Name and Year: 
+        </h4>
         <section id="movie-summary"></section>
       </section>
       <section class="py-4">
-        <h4>Movie Details: </h4>
+        <h4 class="text-3xl py-2 ml-5">
+          Movie Details:
+         </h4>
         <section id="movie-details"></section>
       </section>
       <section>
-        <h4 class="py-4">Movie Poster: </h4>
-        <section id="movie-poster" class="h-1/2 w-1/2 ml-48 hover:shadow-2xl shadow-amber-950/50 flex justify-center items-center"></section>
+       <h4 class="text-3xl py-2 ml-5">
+        Movie Poster: 
+        <section id="movie-poster" class="h-1/2 w-1/2 ml-100 hover:shadow-2xl shadow-amber-950/50 flex justify-center items-center"></section>
+        <style> 
+          img{
+              width: 600px;
+              border-radius: 10px;
+              float: center;
+          }
+          </style>
       </section>
+
+<!--Tickets to the movies-->
+      <section class="page-section">
+        <div>
+          
+            <address>
+                <a href="https://www.fandango.com/movies-in-theaters">Find a theater near you🍿 </a>
+              
+            </address>
+        </div>
+    </section>
     </main>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
