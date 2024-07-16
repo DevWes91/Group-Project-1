@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="./assets/css/output.css">
   <title>Movie Finder</title>
 </head>
-<body class="bg-slate-500">
+<body class="bg-slate-400">
   <header>
-    <h1 class="text-slate-300 text-6xl font-light text-center bg-slate-700 py-3 tracking-widest">
+    <h1 class="text-slate-300 text-6xl font-light text-center bg-slate-600 py-3 tracking-widest">
       MOVIE FINDER 
     </h1>
   </header>
@@ -33,7 +33,7 @@
           placeholder="Enter a Movie Name">
         <br>
         <!-- Movie Search Execution Button -->
-        <button type="button" class="search-btn ml-16 px-4 tracking-widest hover:bg-slate-400 hover:text-slate-200" id="searchbtn" onclick="getUserMovie()">Search</button>
+        <button type="button" class="search-btn ml-16 px-4 tracking-widest hover:bg-slate-400 hover:text-slate-200 cursor-pointer" id="searchbtn" onclick="getUserMovie()">Search</button>
         </section>
       </section>
       <section>
@@ -42,21 +42,21 @@
         </h3>
       </section>
     </aside>
-    <main class="text-slate-900">
-      <h3 class="text-4xl text-center py-10 underline tracking-wider">
+    <main class="text-slate-900 text-center">
+      <h3 class="text-4xl py-10 underline tracking-wider">
         Movie Information
       </h3>
-      <section id="current-movie">
+      <section id="current-movie" class="py-4">
         <h4>Movie Name and Year: </h4>
         <section id="movie-summary"></section>
       </section>
-      <section>
+      <section class="py-4">
         <h4>Movie Details: </h4>
         <section id="movie-details"></section>
       </section>
       <section>
-        <h4 class="">Movie Poster: </h4>
-        <section id="movie-poster" class="h-1/2 w-1/2"></section>
+        <h4 class="py-4">Movie Poster: </h4>
+        <section id="movie-poster" class="h-1/2 w-1/2 ml-48 hover:shadow-2xl shadow-amber-950/50 flex justify-center items-center"></section>
       </section>
     </main>
   </div>
