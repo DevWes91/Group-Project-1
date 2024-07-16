@@ -228,8 +228,62 @@ function displayMovie(result) {
   $("#movie-search").val("");
 
   // Calls function to display past Movie searches (sidebard)
-  // displaySearchHistory();  // UPDATE !!!
+  displaySearchHistory(); // UPDATE !!!
 }
+
+// // //  // // //  // // //  // // //  // // //  // // //  // // //  // // //
+
+function createSearchItem(search) {
+  console.log(search);
+  // Creates container for each prior Movie search
+  const searchCard = $("<div>");
+
+  // Creates individual Buttons for each prior (unique) User-input Movie search
+  const searchMovieBtn = $("<button>")
+    .addClass("search-btn")
+    .text(search)
+    .attr("search-id", search);
+  searchMovieBtn.on("click", getPastMovie);
+
+  searchCard.append(searchMovieBtn);
+
+  return searchCard;
+}
+
+// Displays names of previously-searched Movies as interactive Buttons (HTML)
+function displaySearchHistory() {
+  // Call Movie Search History Function, retrieving past Searches from Local Storage, and assigns to Local Variable
+  searchMovieHistory = refreshMovieHistory();
+  // console.log(searchMovieHistory);
+
+  // Clears Search History List (HTML) of previously-searched Movies
+  const searchList = $("#search-history");
+  searchList.empty();
+
+  for (const [key, value] of Object.entries(searchMovieHistory)) {
+    // console.log(value.movieName);
+
+    // Appends individual prior Movie searches to 'Previous Searches' <section> of webpage
+    searchList.append(createSearchItem(value.movieName));
+  }
+}
+
+function getPastMovie(event) {
+  // Constant holding previously-searched Movie for which new Weather data will be called
+  const movieSearch = $(this).attr("search-id");
+  console.log(movieSearch);
+
+  // Calls (Third-Party) IMDb API Function
+  getIMDd();
+}
+
+// On Page Load displays prior Movie search results (sidebar)
+$(document).ready(function () {
+  // Populates Search History panel with past Movie Search names, taken from Local Storage
+  displaySearchHistory();
+});
+
+// // //  // // //  // // //  // // //  // // //  // // //  // // //  // // //
 
 function consoleIMDbResult(result) {
   movieNewData = updateMovieData();
