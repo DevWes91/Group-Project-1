@@ -123,7 +123,7 @@ https://github.com/DevWes91/Group-Project-1.git
 
 ## GitHub Pages Location
 
-* PENDING *
+https://devwes91.github.io/Group-Project-1/
 
 
 ## Application Screenshots
