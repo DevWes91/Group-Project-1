@@ -228,62 +228,49 @@ function displayMovie(result) {
   $("#movie-search").val("");
 
   // Calls function to display past Movie searches (sidebard)
-  displaySearchHistory(); // UPDATE !!!
-}
+  // displaySearchHistory();  // UPDATE !!!
 
-// // //  // // //  // // //  // // //  // // //  // // //  // // //  // // //
-
-function createSearchItem(search) {
-  console.log(search);
-  // Creates container for each prior Movie search
-  const searchCard = $("<div>");
-
-  // Creates individual Buttons for each prior (unique) User-input Movie search
-  const searchMovieBtn = $("<button>")
-    .addClass("search-btn")
-    .text(search)
-    .attr("search-id", search);
-  searchMovieBtn.on("click", getPastMovie);
-
-  searchCard.append(searchMovieBtn);
-
-  return searchCard;
-}
-
-// Displays names of previously-searched Movies as interactive Buttons (HTML)
+  // Function to display search history
 function displaySearchHistory() {
-  // Call Movie Search History Function, retrieving past Searches from Local Storage, and assigns to Local Variable
-  searchMovieHistory = refreshMovieHistory();
-  // console.log(searchMovieHistory);
-
-  // Clears Search History List (HTML) of previously-searched Movies
-  const searchList = $("#search-history");
-  searchList.empty();
-
-  for (const [key, value] of Object.entries(searchMovieHistory)) {
-    // console.log(value.movieName);
-
-    // Appends individual prior Movie searches to 'Previous Searches' <section> of webpage
-    searchList.append(createSearchItem(value.movieName));
-  }
+  const searchHistory = refreshMovieHistory();
+  const historyContainer = $("#search-history");
+  
+  // Clear existing history
+  historyContainer.empty();
+  
+  // Create and append header
+  const historyHeader = $("<h3>").text("Search History");
+  historyContainer.append(historyHeader);
+  
+  // Create list for history items
+  const historyList = $("<ul>").addClass("history-list");
+  
+  // Add each search item to the list
+  searchHistory.forEach((search) => {
+    const listItem = $("<li>")
+      .text(search.movieName)
+      .addClass("history-item")
+      .on("click", function() {
+        inputMovie.value = search.movieName;
+        getUserMovie();
+      });
+    historyList.append(listItem);
+  });
+  
+  // Append the list to the container
+  historyContainer.append(historyList);
 }
 
-function getPastMovie(event) {
-  // Constant holding previously-searched Movie for which new Weather data will be called
-  const movieSearch = $(this).attr("search-id");
-  console.log(movieSearch);
+// Call this function after a new search is added
+// Add this line at the end of the getUserMovie function
+displaySearchHistory();
 
-  // Calls (Third-Party) IMDb API Function
-  getIMDd();
-}
-
-// On Page Load displays prior Movie search results (sidebar)
-$(document).ready(function () {
-  // Populates Search History panel with past Movie Search names, taken from Local Storage
+// Also call this function when the page loads to display initial history
+$(document).ready(function() {
   displaySearchHistory();
 });
 
-// // //  // // //  // // //  // // //  // // //  // // //  // // //  // // //
+}
 
 function consoleIMDbResult(result) {
   movieNewData = updateMovieData();
@@ -334,4 +321,39 @@ function consoleStreamingResult(result) {
       );
     }
   });
+  displayStreamingResults(result);
 }
+
+
+  // Create function to display streaming results on the page 
+function displayStreamingResults(result) {
+  const streamingContainer = $('<div>').attr('id', 'streaming-results');
+  const streamingHeader = $('<h3>').text('Streaming Options');
+  streamingContainer.append(streamingHeader);
+
+  if (result.streamingOptions && result.streamingOptions.us && result.streamingOptions.us.length > 0) {
+    const streamingList = $('<ul>');
+
+    result.streamingOptions.us.forEach((instance) => {
+      let streamingInfo = '';
+      if (instance.type === "addon") {
+        streamingInfo = `Available as an ${instance.type} on ${instance.service.name}, in ${instance.quality.toUpperCase()} quality.`;
+      } else if (instance.type === "rent" || instance.type === "buy") {
+        streamingInfo = `Available to ${instance.type} on ${instance.service.name}, in ${instance.quality.toUpperCase()} quality for $${instance.price.amount}.`;
+      }
+
+      if (streamingInfo) {
+        const listItem = $('<li>').html(`${streamingInfo} <a href="${instance.link}" target="_blank">Watch here</a>`);
+        streamingList.append(listItem);
+      }
+    });
+
+    streamingContainer.append(streamingList);
+  } else {
+    const noStreaming = $('<p>').text("This movie isn't currently available on streaming services in the United States.");
+    streamingContainer.append(noStreaming);
+  }
+
+  $('#movie-details').append(streamingContainer);
+}
+
