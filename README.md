@@ -128,10 +128,12 @@ https://github.com/DevWes91/Group-Project-1.git
 
 ## Application Screenshots
 
-![Movie Finder: Empty UI Screenshot](?raw=true "Movie Finder: Empty UI Screenshot")
+![Movie Finder: Movie Search UI Screenshot - The Hobbit Movie Info](./assets/images/Movie-Finder_Movie-Search-UI-Screenshot_The-Hobbit-Movie-Info.png?raw=true "Movie Finder: Movie Search UI Screenshot - The Hobbit Movie Info")
 
-![Movie Finder: Populated UI Screenshot 01 - Titanic](?raw=true "Movie Finder: Populated UI Screenshot 01 - Titanic")
+![Movie Finder: Populated Historical Search UI Screenshot - The Hobbit](./assets/images/Movie-Finder_Populated-Historical-Search-UI-Screenshot_The-Hobbit.png?raw=true "Movie Finder: Populated Historical Search UI Screenshot - The Hobbit")
 
-![Movie Finder: Populated UI Screenshot 01 - Star Wars](?raw=true "Movie Finder: Populated UI Screenshot 01 - Star Wars")
+![Movie Finder: Movie Search UI Screenshot - Titanic Movie Info](./assets/images/Movie-Finder_Movie-Search-UI-Screenshot_Titanic-Movie-Info.png?raw=true "Movie Finder: Movie Search UI Screenshot - Titanic Movie Info")
 
-![Movie Finder: Populated UI Screenshot 01 - Barbie](?raw=true "Movie Finder: Populated UI Screenshot 01 - Barbie")
+![Movie Finder: Movie Search UI Screenshot - Terminator Movie Info](./assets/images/Movie-Finder_Movie-Search-UI-Screenshot_Terminator-Movie-Info.png?raw=true "Movie Finder: Populated UI Screenshot 01 - Barbie")
+
+![Movie Finder: Populated Historical Search UI Screenshot - Terminator](./assets/images/Movie-Finder_Populated-Historical-Search-UI-Screenshot_Terminator.png?raw=true "Movie Finder: Populated Historical Search UI Screenshot - Terminator")
